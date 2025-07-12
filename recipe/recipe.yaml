@@ -11,8 +11,8 @@ source:
     sha256: 6df427063e8bf965a6e32f48dc62c7be7d53f6c8d61afae67e793fa4b727aa81
 
 build:
-  number: 0
-  skip: not linux
+  number: 1
+  skip: win
 
 requirements:
   build:
@@ -44,6 +44,9 @@ requirements:
         - xorg-xproto
         - xorg-kbproto
         - libxkbcommon
+    - if: macos
+      then:
+        - cmake
 
 tests:
   - script:

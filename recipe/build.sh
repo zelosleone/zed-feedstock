@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 
 set -o xtrace -o nounset -o pipefail -o errexit
+export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 
-# Install menuinst
-install -Dm0644 "${RECIPE_DIR}/menu.json" "${PREFIX}/Menu/${PKG_NAME}_menu.json"
-install -Dm0644 crates/zed/resources/app-icon.png "$PREFIX/Menu/zed.png"
+if [[ "$target_platform" == "osx-64" || "$target_platform" == "osx-arm64" ]]; then
+    echo "Building for macOS"
+else
+    # Install menuinst
+    install -Dm0644 "${RECIPE_DIR}/menu.json" "${PREFIX}/Menu/${PKG_NAME}_menu.json"
+    install -Dm0644 crates/zed/resources/app-icon.png "$PREFIX/Menu/zed.png"
+fi
 
 # Set Cargo build profile
 # LTO=thin is already the default, and fat just takes too much memory
