@@ -6,3 +6,10 @@ github:
 conda_build:
   error_overlinking: true
 conda_forge_output_validation: true
+build_platform:
+  osx_arm64: osx_64
+azure:
+  settings_osx:
+    pool:
+      vmImage: macos-13
+  store_build_artifacts: true
