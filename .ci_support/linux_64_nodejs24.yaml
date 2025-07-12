@@ -25,7 +25,7 @@ docker_image:
 libxcb:
 - '1'
 nodejs:
-- '20'
+- '24'
 openssl:
 - '3'
 rust_compiler:
