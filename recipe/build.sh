@@ -11,6 +11,10 @@ else
     install -Dm0644 crates/zed/resources/app-icon.png "$PREFIX/Menu/zed.png"
 fi
 
+if [[ "$target_platform" == "osx-arm64" && "${CONDA_BUILD_CROSS_COMPILATION:-0}" == "1" ]]; then
+  export CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_OSX_ARCHITECTURES=arm64"
+fi
+
 # Set Cargo build profile
 # LTO=thin is already the default, and fat just takes too much memory
 export CARGO_PROFILE_RELEASE_STRIP=symbols
