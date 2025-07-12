@@ -12,7 +12,7 @@ else
 fi
 
 if [[ "$target_platform" == "osx-arm64" && "${CONDA_BUILD_CROSS_COMPILATION:-0}" == "1" ]]; then
-  export CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_OSX_ARCHITECTURES=arm64 -DCMAKE_PREFIX_PATH=${PREFIX};${SP_DIR}"
+  export CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_OSX_ARCHITECTURES=arm64 -DCMAKE_PREFIX_PATH=${PREFIX}"
 fi
 
 # Set Cargo build profile
