@@ -10,6 +10,7 @@ install -m0644 crates/zed/resources/app-icon.png "$PREFIX/Menu/zed.png"
 
 if [[ "$target_platform" == "osx-arm64" && "${CONDA_BUILD_CROSS_COMPILATION:-0}" == "1" ]]; then
   export CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_OSX_ARCHITECTURES=arm64 -DCMAKE_PREFIX_PATH=${PREFIX}"
+  export CARGO_BUILD_TARGET=aarch64-apple-darwin
 fi
 
 # Set Cargo build profile
@@ -23,7 +24,7 @@ cargo-bundle-licenses \
 export CFLAGS="$CFLAGS -D_BSD_SOURCE"
 
 # Build package
-cargo build --release --package zed --package cli
+cargo build --release --package zed --package cli --target "${CARGO_BUILD_TARGET}"
 
 # Install package
 mkdir -p "$PREFIX/bin"
