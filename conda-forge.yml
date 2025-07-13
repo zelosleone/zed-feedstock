@@ -13,3 +13,4 @@ azure:
     pool:
       vmImage: macos-13
   store_build_artifacts: true
+test: native_and_emulated
