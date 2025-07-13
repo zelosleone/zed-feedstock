@@ -47,9 +47,6 @@ requirements:
         - xorg-xproto
         - xorg-kbproto
         - libxkbcommon
-    - if: osx
-      then:
-        - cmake
 
 tests:
   - script:
