@@ -24,7 +24,6 @@ requirements:
     - ${{ compiler('cxx') }}
     - cargo-bundle-licenses
     - pkg-config
-    - cmake
 
   host:
     - if: linux
