@@ -11,8 +11,9 @@ source:
     sha256: 6df427063e8bf965a6e32f48dc62c7be7d53f6c8d61afae67e793fa4b727aa81
 
 build:
-  number: 2
-  skip: not linux
+  number: 3
+  skip:
+    - win
 
 requirements:
   build:
@@ -22,6 +23,7 @@ requirements:
     - ${{ compiler('cxx') }}
     - cargo-bundle-licenses
     - pkg-config
+    - cmake
 
   host:
     - if: linux
