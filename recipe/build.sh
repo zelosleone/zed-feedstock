@@ -6,7 +6,12 @@ export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 # Install menuinst
 mkdir -p "${PREFIX}/Menu"
 install -m0644 "${RECIPE_DIR}/menu.json" "${PREFIX}/Menu/${PKG_NAME}_menu.json"
-install -m0644 crates/zed/resources/app-icon.png "$PREFIX/Menu/zed.png"
+
+if [[ $OSTYPE == "darwin"* ]]; then
+    install -m0644 "${RECIPE_DIR}/zed.icns" "${PREFIX}/Menu/zed.icns"
+else
+    install -m0644 "crates/zed/resources/app-icon.png" "$PREFIX/Menu/zed.png"
+fi
 
 if [[ "$target_platform" == "osx-arm64" && "${CONDA_BUILD_CROSS_COMPILATION:-0}" == "1" ]]; then
   export CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_OSX_ARCHITECTURES=arm64 -DCMAKE_PREFIX_PATH=${PREFIX}"
