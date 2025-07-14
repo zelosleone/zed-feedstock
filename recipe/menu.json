@@ -20,9 +20,6 @@
         "osx": {
           "precommand": "pushd \"$(dirname \"$0\")\" &>/dev/null",
           "command": [ "{{ PREFIX }}/bin/zed", "$@" ],
-          "link_in_bundle": {
-            "{{ PREFIX }}/bin/zed": "{{ MENU_ITEM_LOCATION }}/Contents/MacOS/zed"
-          },
           "CFBundleName": "Zed",
           "CFBundleIdentifier": "dev.zedapp.zed-__PKG_MAJOR_VER__-__CFBID_ENV__",
           "CFBundleVersion": "__PKG_VERSION__"
