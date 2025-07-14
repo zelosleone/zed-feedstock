@@ -29,7 +29,6 @@ requirements:
         - alsa-lib
         - curl
         - libxcb
-        - nodejs
         - openssl
         - sqlite
         - libvulkan-loader
