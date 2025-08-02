@@ -38,3 +38,6 @@ mkdir -p "$PREFIX/bin"
 install -m0755 target/${CARGO_BUILD_TARGET}/release/cli "$PREFIX/bin/zed"
 mkdir -p "$PREFIX/lib/zed"
 install -m0755 target/${CARGO_BUILD_TARGET}/release/zed "$PREFIX/lib/zed/zed-editor"
+
+# Remove target dir to save disk space
+rm -rf target
