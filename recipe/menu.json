@@ -18,7 +18,6 @@
           }
         },
         "osx": {
-          "precommand": "pushd \"$(dirname \"$0\")\" &>/dev/null",
           "command": [ "{{ PREFIX }}/bin/zed", "$@" ],
           "CFBundleName": "Zed",
           "CFBundleIdentifier": "dev.zedapp.zed-__PKG_MAJOR_VER__-__CFBID_ENV__",
