@@ -18,10 +18,7 @@
                     }
                 },
                 "osx": {
-                    "command": [ "{{ MENU_ITEM_LOCATION }}/Contents/MacOS/zed-editor", "$@" ],
-                    "link_in_bundle": {
-                        "{{ PREFIX }}/bin/zed-editor": "{{ MENU_ITEM_LOCATION }}/Contents/MacOS/zed-editor"
-                    }
+                    "command": [ "{{ PREFIX }}/bin/zed-editor", "$@" ]
                 }
             }
         }
