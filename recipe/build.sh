@@ -37,7 +37,7 @@ cargo build --release --package zed --package cli --target "${CARGO_BUILD_TARGET
 mkdir -p "$PREFIX/bin"
 install -m0755 target/${CARGO_BUILD_TARGET}/release/cli "$PREFIX/bin/cli"
 # mkdir -p "$PREFIX/lib/zed"
-install -m0755 target/${CARGO_BUILD_TARGET}/release/zed-editor "$PREFIX/bin/zed-editor"
+install -m0755 target/${CARGO_BUILD_TARGET}/release/zed "$PREFIX/bin/zed-editor"
 cp "$PREFIX/bin/cli" "$PREFIX/bin/zed"
 
 # Remove target dir to save disk space
