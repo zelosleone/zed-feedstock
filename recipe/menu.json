@@ -1,29 +1,29 @@
 {
-  "$schema": "https://schemas.conda.org/menuinst/menuinst-1-1-0.schema.json",
-  "menu_name": "Zed",
-  "menu_items": [
-    {
-      "name": "Zed",
-      "description": "High-performance, multiplayer code editor",
-      "activate": true,
-      "icon": "{{ MENU_DIR }}/zed.{{ ICON_EXT }}",
-      "command": [ "" ],
-      "platforms": {
-        "linux": {
-          "command": [ "{{ PREFIX }}/bin/zed", "%F" ],
-          "StartupNotify": true,
-          "MimeType": [ "application/x-menuinst" ],
-          "glob_patterns": {
-            "application/x-menuinst": "*.menuinst"
-          }
-        },
-        "osx": {
-          "command": [ "{{ PREFIX }}/bin/zed", "$@" ],
-          "CFBundleName": "Zed",
-          "CFBundleIdentifier": "dev.zedapp.zed-__PKG_MAJOR_VER__-__CFBID_ENV__",
-          "CFBundleVersion": "__PKG_VERSION__"
+    "$schema": "https://schemas.conda.org/menuinst/menuinst-1-1-0.schema.json",
+    "menu_name": "Zed",
+    "menu_items": [
+        {
+            "name": "Zed",
+            "description": "High-performance, multiplayer code editor",
+            "activate": true,
+            "icon": "{{ MENU_DIR }}/zed.{{ ICON_EXT }}",
+            "command": [ "" ],
+            "platforms": {
+                "linux": {
+                    "command": [ "{{ PREFIX }}/bin/zed", "%F" ],
+                    "StartupNotify": true,
+                    "MimeType": [ "application/x-menuinst" ],
+                    "glob_patterns": {
+                        "application/x-menuinst": "*.menuinst"
+                    }
+                },
+                "osx": {
+                    "command": [ "{{ MENU_ITEM_LOCATION }}/Contents/MacOS/zed-editor", "$@" ],
+                    "link_in_bundle": {
+                        "{{ PREFIX }}/bin/zed-editor": "{{ MENU_ITEM_LOCATION }}/Contents/MacOS/zed-editor"
+                    }
+                }
+            }
         }
-      }
-    }
-  ]
+    ]
 }
