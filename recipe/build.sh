@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 set -o xtrace -o nounset -o pipefail -o errexit
-# export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 
 # Install menuinst
 mkdir -p "${PREFIX}/Menu"
@@ -35,8 +34,7 @@ cargo build --release --package zed --package cli --target "${CARGO_BUILD_TARGET
 
 # Install package
 mkdir -p "$PREFIX/bin"
-install -m0755 target/${CARGO_BUILD_TARGET}/release/cli "$PREFIX/bin/cli"
-# mkdir -p "$PREFIX/lib/zed"
+install -m0755 target/${CARGO_BUILD_TARGET}/release/cli "$PREFIX/bin/zed"
 install -m0755 target/${CARGO_BUILD_TARGET}/release/zed "$PREFIX/bin/zed-editor"
 
 # Remove target dir to save disk space
