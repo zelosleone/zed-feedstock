@@ -18,7 +18,8 @@
           }
         },
         "osx": {
-          "command": [ "{{ PREFIX }}/bin/zed", "$@" ]
+          "command": [ "{{ PREFIX }}/bin/zed", "$@" ],
+          "link_in_bundle": { "{{ PREFIX }}/lib/zed/cli": "{{ MENU_ITEM_LOCATION }}/Contents/MacOS/zed-cli" }
         }
       }
     }
