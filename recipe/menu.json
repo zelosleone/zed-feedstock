@@ -19,7 +19,8 @@
         },
         "osx": {
           "command": [ "{{ PREFIX }}/bin/zed", "$@" ],
-          "link_in_bundle": { "{{ PREFIX }}/lib/zed/cli": "{{ MENU_ITEM_LOCATION }}/Contents/MacOS/zed-cli" }
+          "CFBundleIdentifier": "dev.zedapp.zed-__PKG_MAJOR_VER__-__CFBID_ENV__",
+          "CFBundleVersion": "__PKG_VERSION__"
         }
       }
     }
