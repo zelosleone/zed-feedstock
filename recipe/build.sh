@@ -34,7 +34,15 @@ cargo build --release --package zed --package cli --target "${CARGO_BUILD_TARGET
 
 # Install package
 mkdir -p "$PREFIX/bin"
-install -m0755 target/${CARGO_BUILD_TARGET}/release/zed "$PREFIX/bin/zed"
+mkdir -p "$PREFIX/lib/zed"
+install -m0755 target/${CARGO_BUILD_TARGET}/release/zed "$PREFIX/lib/zed/zed-editor"
+if [[ $OSTYPE == "darwin"* ]]; then
+    install -m0755 target/${CARGO_BUILD_TARGET}/release/cli "$PREFIX/lib/zed/zed-cli"
+    install -m0755 "$RECIPE_DIR/zed-cli-osx.sh" "$PREFIX/bin/zed"
+else
+    # https://github.com/zed-industries/zed/blob/bdedb18c300e71086a63dae1cacf3fe87c885fcf/crates/cli/src/main.rs#L416-L433
+    install -m0755 target/${CARGO_BUILD_TARGET}/release/cli "$PREFIX/bin/zed"
+fi
 
 # Remove target dir to save disk space
 rm -rf target
