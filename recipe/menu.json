@@ -12,6 +12,8 @@
         "linux": {
           "command": ["{{ PREFIX }}/bin/zed", "%F"],
           "StartupNotify": true,
+          "Categories": ["Utility", "TextEditor", "Developmen", "IDE"],
+          "GenericName": "Text Editor",
           "MimeType": [
             "application/java",
             "application/javascript",
