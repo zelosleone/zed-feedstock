@@ -14,6 +14,7 @@
           "StartupNotify": true,
           "Categories": ["Utility", "TextEditor", "Developmen", "IDE"],
           "GenericName": "Text Editor",
+          "StartupWMClass": "dev.zed.Zed",
           "MimeType": [
             "application/java",
             "application/javascript",
