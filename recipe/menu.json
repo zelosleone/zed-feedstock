@@ -12,6 +12,7 @@
         "linux": {
           "command": ["{{ PREFIX }}/bin/zed", "%F"],
           "StartupNotify": true,
+          "StartupWMClass": "dev.zed.Zed",
           "MimeType": [
             "text/plain",
             "text/x-python",
