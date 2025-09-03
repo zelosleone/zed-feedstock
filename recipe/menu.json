@@ -44,7 +44,7 @@
         },
         "osx": {
           "command": ["{{ PREFIX }}/lib/zed/zed-editor", "$@"],
-          "CFBundleIdentifier": "dev.zedapp.zed-__PKG_MAJOR_VER__-__CFBID_ENV__",
+          "CFBundleIdentifier": "dev.zedapp.zed-__PKG_MAJOR_VER__",
           "CFBundleVersion": "__PKG_VERSION__",
           "CFBundleDocumentTypes": [
             {

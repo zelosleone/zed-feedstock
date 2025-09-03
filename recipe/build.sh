@@ -4,11 +4,12 @@ set -o xtrace -o nounset -o pipefail -o errexit
 
 # Install menuinst
 mkdir -p "${PREFIX}/Menu"
-install -m0644 "${RECIPE_DIR}/menu.json" "${PREFIX}/Menu/${PKG_NAME}_menu.json"
 
 if [[ $OSTYPE == "darwin"* ]]; then
+    sed -e "s/__PKG_VERSION__/${PKG_VERSION}/g" -e "s/__PKG_MAJOR_VER__/${PKG_VERSION%%.*}/g" "${{ RECIPE_DIR }}/menu.json" > "${{ PREFIX }}/Menu/${{ PKG_NAME }}_menu.json"
     install -m0644 "${RECIPE_DIR}/zed.icns" "${PREFIX}/Menu/zed.icns"
 else
+    install -m0644 "${RECIPE_DIR}/menu.json" "${PREFIX}/Menu/${PKG_NAME}_menu.json"
     install -m0644 "crates/zed/resources/app-icon.png" "$PREFIX/Menu/zed.png"
 fi
 
