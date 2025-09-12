@@ -2,9 +2,12 @@
 
 set -o xtrace -o nounset -o pipefail -o errexit
 
+# Install shell completions
+mkdir -p "${PREFIX}/share/bash-completion/completions"
+install -m0755 "${RECIPE_DIR}/completions/zed.bash" "${PREFIX}/share/bash-completion/completions/zed"
+
 # Install menuinst
 mkdir -p "${PREFIX}/Menu"
-
 if [[ ${OSTYPE} == "darwin"* ]]; then
     sed -e "s/__PKG_VERSION__/${PKG_VERSION}/g" -e "s/__PKG_MAJOR_VER__/${PKG_VERSION%%.*}/g" "${RECIPE_DIR}/menu.json" > "${PREFIX}/Menu/${PKG_NAME}_menu.json"
     install -m0644 "${RECIPE_DIR}/zed.icns" "${PREFIX}/Menu/zed.icns"
@@ -25,6 +28,8 @@ export CARGO_PROFILE_RELEASE_STRIP=symbols
 cargo-bundle-licenses \
     --format yaml \
     --output THIRDPARTY.yml
+
+# Set CFLAGS
 export CFLAGS="${CFLAGS} -D_BSD_SOURCE"
 
 # Disable auto updates
