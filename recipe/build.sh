@@ -3,6 +3,7 @@
 set -o xtrace -o nounset -o pipefail -o errexit
 
 # Install shell completions
+mkdir -p "${PREFIX}/share/bash-completion/completions"
 install -m0755 "${RECIPE_DIR}/completions/zed.bash" "${PREFIX}/share/bash-completion/completions/zed"
 
 # Install menuinst
