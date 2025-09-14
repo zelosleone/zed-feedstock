@@ -50,5 +50,10 @@ else
     install -m0755 target/${CARGO_BUILD_TARGET}/release/cli "${PREFIX}/bin/zed"
 fi
 
+# Install conda activation scripts to set runtime env vars
+mkdir -p "${PREFIX}/etc/conda/activate.d" "${PREFIX}/etc/conda/deactivate.d"
+install -m0755 "${RECIPE_DIR}/activate.sh" "${PREFIX}/etc/conda/activate.d/zed_activate.sh"
+install -m0755 "${RECIPE_DIR}/deactivate.sh" "${PREFIX}/etc/conda/deactivate.d/zed_deactivate.sh"
+
 # Remove target dir to save disk space
 rm -rf target
