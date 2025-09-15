@@ -13,6 +13,9 @@ azure:
     pool:
       vmImage: macos-13
   store_build_artifacts: true
+  # free up some extra space on the default Azure Pipelines
+  # linux image before running the Docker container for building
+  free_disk_space: true
 test: native_and_emulated
 bot:
   automerge: true

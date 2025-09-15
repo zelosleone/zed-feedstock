@@ -24,11 +24,6 @@ fi
 # LTO=thin is already the default, and fat just takes too much memory
 export CARGO_PROFILE_RELEASE_STRIP=symbols
 
-# Check licenses
-cargo-bundle-licenses \
-    --format yaml \
-    --output THIRDPARTY.yml
-
 # Set CFLAGS
 export CFLAGS="${CFLAGS} -D_BSD_SOURCE"
 
@@ -57,3 +52,8 @@ install -m0755 "${RECIPE_DIR}/deactivate.sh" "${PREFIX}/etc/conda/deactivate.d/z
 
 # Remove target dir to save disk space
 rm -rf target
+
+# Check licenses
+cargo-bundle-licenses \
+    --format yaml \
+    --output THIRDPARTY.yml
