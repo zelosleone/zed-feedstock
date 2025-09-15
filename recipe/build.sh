@@ -32,7 +32,7 @@ export CFLAGS="${CFLAGS} -D_BSD_SOURCE"
 export ZED_UPDATE_EXPLANATION='Please use your package manager to update zed from conda-forge'
 
 # Build package
-cargo build --release --package zed --package cli --target "${CARGO_BUILD_TARGET}" -Zno-embed-metadata
+cargo build --release --package zed --package cli --target "${CARGO_BUILD_TARGET}"
 
 # Install package
 mkdir -p "${PREFIX}/bin"
