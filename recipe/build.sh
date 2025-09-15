@@ -23,6 +23,7 @@ fi
 # Set Cargo build profile
 # LTO=thin is already the default, and fat just takes too much memory
 export CARGO_PROFILE_RELEASE_STRIP=symbols
+export CARGO_INCREMENTAL=0
 
 # Set CFLAGS
 export CFLAGS="${CFLAGS} -D_BSD_SOURCE"
@@ -31,7 +32,7 @@ export CFLAGS="${CFLAGS} -D_BSD_SOURCE"
 export ZED_UPDATE_EXPLANATION='Please use your package manager to update zed from conda-forge'
 
 # Build package
-cargo build --release --package zed --package cli --target "${CARGO_BUILD_TARGET}"
+cargo build --release --package zed --package cli --target "${CARGO_BUILD_TARGET}" -Zno-embed-metadata
 
 # Install package
 mkdir -p "${PREFIX}/bin"
