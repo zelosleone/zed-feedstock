@@ -45,6 +45,17 @@
           "command": ["{{ PREFIX }}/lib/zed/zed-editor", "$@"],
           "CFBundleIdentifier": "dev.zedapp.zed-__PKG_MAJOR_VER__",
           "CFBundleVersion": "__PKG_VERSION__",
+          "UTExportedTypeDeclarations": [
+            {
+              "UTTypeIdentifier": "org.rust-lang.rust-source",
+              "UTTypeDescription": "Rust Source File",
+              "UTTypeConformsTo": ["public.source-code", "public.text"],
+              "UTTypeTagSpecification": {
+                "public.filename-extension": ["rs"],
+                "public.mime-type": ["text/x-rust"]
+              }
+            }
+          ],
           "CFBundleDocumentTypes": [
             {
               "CFBundleTypeName": "text document",
@@ -95,6 +106,7 @@
                 "net.daringfireball.markdown",
                 "org.khronos.glsl-source",
                 "org.oasis-open.xliff",
+                "org.rust-lang.rust-source",
                 "public.ada-source",
                 "public.assembly-source",
                 "public.bash-script",
