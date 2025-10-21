@@ -23,7 +23,7 @@ docker_image:
 libxcb:
 - '1'
 openssl:
-- '3'
+- '3.5'
 rust_compiler:
 - rust
 rust_compiler_version:
