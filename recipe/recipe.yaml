@@ -1,6 +1,6 @@
 context:
   name: zed
-  version: "0.211.5"
+  version: "0.211.6"
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://github.com/zed-industries/zed/archive/v${{ version }}.tar.gz
-    sha256: eec815c4efe50241cd88e9d354ef70dcb01b82bdb237c388f1c636c9b26c7342
+    sha256: 6ece34721641bc385a998a350cc2eca6540f62682104f35cfcea50af7754d392
 
 build:
   number: 0
