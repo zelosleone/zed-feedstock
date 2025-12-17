@@ -11,9 +11,6 @@ build_platform:
 azure:
   settings_linux:
     swapfile_size: 10GiB
-  settings_osx:
-    pool:
-      vmImage: macos-13
   store_build_artifacts: true
   # free up some extra space on the default Azure Pipelines
   # linux image before running the Docker container for building
