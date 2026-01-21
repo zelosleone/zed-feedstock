@@ -18,6 +18,8 @@ fi
 
 if [[ ${target_platform} == "osx-arm64" && "${CONDA_BUILD_CROSS_COMPILATION:-0}" == "1" ]]; then
   export CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_OSX_ARCHITECTURES=arm64 -DCMAKE_PREFIX_PATH=${PREFIX}"
+elif [[ ${OSTYPE} == "linux"* && ${build_platform} != ${target_platform} ]]; then
+  export PKG_CONFIG_ALLOW_CROSS=1
 fi
 
 # Set Cargo build profile
