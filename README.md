@@ -188,4 +188,5 @@ Feedstock Maintainers
 =====================
 
 * [@Hofer-Julian](https://github.com/Hofer-Julian/)
+* [@lucascolley](https://github.com/lucascolley/)
 

@@ -1,6 +1,6 @@
 context:
   name: zed
-  version: "0.194.3"
+  version: "0.219.4"
 
 package:
   name: ${{ name|lower }}
@@ -8,10 +8,10 @@ package:
 
 source:
   - url: https://github.com/zed-industries/zed/archive/v${{ version }}.tar.gz
-    sha256: 6df427063e8bf965a6e32f48dc62c7be7d53f6c8d61afae67e793fa4b727aa81
+    sha256: 1edc2a63c23de110435bdb30f217a76d117980796f4a449808f4b7a9ca074675
 
 build:
-  number: 3
+  number: 0
   skip:
     - win
 
@@ -64,4 +64,5 @@ about:
 
 extra:
   recipe-maintainers:
+    - lucascolley
     - Hofer-Julian
